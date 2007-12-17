@@ -9,7 +9,6 @@ Source:		http://www.teaser.fr/~amajorel/yadex/%name-%version.tar.bz2
 Patch0:     yadex-fix-compil.patch
 
 URL:		http://www.teaser.fr/~amajorel/yadex
-BuildRoot:	%_tmppath/%name-%version-%release-root
 BuildRequires:	X11-devel
 
 %description

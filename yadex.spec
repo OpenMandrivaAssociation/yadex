@@ -45,9 +45,15 @@ cat %buildroot/%_sysconfdir/%name/%version/yadex.cfg | \
 
 mv %buildroot/%_sysconfdir/%name/%version/yadex.cfg.tmp %buildroot/%_sysconfdir/%name/%version/yadex.cfg
 
-install -d %buildroot/%_menudir
-cat << EOF > %buildroot/%_menudir/%name
-?package(%name): needs="text" section="Amusement/Arcade" title="Yadex" icon="arcade_section.png" longtitle="A level editor for DOOM" command="%name"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%name.desktop
+[Desktop Entry]
+Type=Application
+Categories=Game;ArcadeGame;
+Name=Yadex
+Icon=arcade_section
+Comment=A level editor for DOOM
+Exec=%name
 EOF
 
 %post
@@ -71,6 +77,6 @@ rm -fr %buildroot
 %dir %_gamesdatadir/yadex/%{version}
 %_gamesdatadir/yadex/%{version}/*.ygd
 %_mandir/man6/yadex*
-%_menudir/yadex
+%{_datadir}/applications/mandriva-yadex.desktop
 
 

@@ -4,13 +4,12 @@ Version:	1.7.0
 Release:	%mkrel 11
 License:	GPL
 Group:		Games/Arcade
-
 Source:		http://www.teaser.fr/~amajorel/yadex/%name-%version.tar.bz2
-Patch0:     yadex-fix-compil.patch
-
+Patch0:		yadex-fix-compil.patch
+Patch1:		yadex-1.7.0-gcc45.patch
 URL:		http://www.teaser.fr/~amajorel/yadex
 BuildRoot:	%_tmppath/%name-%version-%release-root
-BuildRequires:	X11-devel
+BuildRequires:	libx11-devel
 
 %description
 Yadex is a Doom level (wad) editor for Unix systems running X, including
@@ -21,10 +20,11 @@ Strife and Doom alpha. It is available under the terms of the GPL.
 %prep
 %setup -q
 %patch0 -p0 -b .fix-compil
+%patch1 -p0 -b .gcc
 
 %build
 ./configure --prefix=%_prefix
-%make CXXFLAGS="$RPM_OPT_FLAGS" X11LIBDIR=%{_prefix}/%{_lib}
+%make CXXFLAGS="%optflags" CXX="g++ %ldflags" X11LIBDIR=%{_libdir} X11INCLUDEDIR=%{_includedir}
 
 %install
 rm -rf $RPM_BUILD_ROOT

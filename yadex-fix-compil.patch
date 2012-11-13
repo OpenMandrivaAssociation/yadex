@@ -1,0 +1,57 @@
+Index: src/wadlist.cc
+===================================================================
+--- src/wadlist.cc
++++ src/wadlist.cc	2007-01-15 00:22:37.206206861 +0100
+@@ -175,7 +175,7 @@
+   priv->iter = priv->list.erase (i);
+   if (priv->iter == priv->list.begin ())
+   {
+-    priv->iter = 0;			// Catch bugs
++    // priv->iter = 0;			// Catch bugs
+     priv->rewound = true;
+   }
+ }
+Index: src/yadex.h
+===================================================================
+--- src/yadex.h
++++ src/yadex.h	2007-01-15 00:22:21.566103558 +0100
+@@ -98,11 +98,11 @@
+ #define F_I16_D "hd"
+ #define F_I16_H "hX"
+ 
+-typedef unsigned long  u32;
++typedef unsigned int  u32;
+ #define F_U32_D "lu"
+ #define F_U32_H "lX"
+ 
+-typedef signed   long  i32;
++typedef signed   int  i32;
+ #define F_I32_D "ld"
+ #define F_I32_H "lX"
+ 
+Index: GNUmakefile
+===================================================================
+--- GNUmakefile
++++ GNUmakefile	2007-01-15 00:47:30.952073049 +0100
+@@ -730,10 +730,10 @@
+ 	cp -p $< $@
+ 
+ $(OBJDIR)/%.o: src/%.cc
+-	$(CXX) -c -Iatclib -Iboost -I$(X11INCLUDEDIR) $(CXXFLAGS) $< -o $@
++	$(CXX) -c -Iatclib -Iboost -I$(X11INCLUDEDIR) $(CXXFLAGS) -I$(OBJDIR) $< -o $@
+ 
+ $(DOBJDIR)/%.o: src/%.cc
+-	$(CXX) -c -Iatclib -Iboost -I$(X11INCLUDEDIR) $(DCXXFLAGS) $< -o $@
++	$(CXX) -c -Iatclib -Iboost -I$(X11INCLUDEDIR) $(DCXXFLAGS) -I$(OBJDIR) $< -o $@
+ 
+ # To compile the modules of Atclib
+ # (normal and debugging versions)
+@@ -746,7 +746,7 @@
+ # To see the generated assembly code
+ # for the modules of Yadex
+ $(OBJDIR)/%.S: src/%.cc $(MAKEFILE)
+-	$(CXX) $(CXXFLAGS) -S -fverbose-asm -Iatclib -Iboost -I$(X11INCLUDEDIR)\
++	$(CXX) $(CXXFLAGS) -S -fverbose-asm -Iatclib -Iboost -I$(X11INCLUDEDIR) -I$(OBJDIR)\
+ 	  $< -o $@
+ 
+ # A source file containing the credits

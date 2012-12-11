@@ -85,3 +85,52 @@ rm -fr %buildroot
 %{_datadir}/applications/mandriva-yadex.desktop
 
 
+
+
+%changelog
+* Fri Jan 21 2011 Funda Wang <fwang@mandriva.org> 1.7.0-11mdv2011.0
++ Revision: 632005
+- fix build with latest gcc
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Mon Aug 04 2008 Thierry Vignaud <tv@mandriva.org> 1.7.0-10mdv2009.0
++ Revision: 262772
+- rebuild
+
+* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 1.7.0-9mdv2009.0
++ Revision: 257901
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Mon Feb 18 2008 Thierry Vignaud <tv@mandriva.org> 1.7.0-7mdv2008.1
++ Revision: 171193
+- rebuild
+- fix "foobar is blabla" summary (=> "blabla") so that it looks nice in rpmdrake
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Tue Dec 18 2007 Thierry Vignaud <tv@mandriva.org> 1.7.0-6mdv2008.1
++ Revision: 132303
+- auto-convert XDG menu entry
+- kill re-definition of %%buildroot on Pixel's request
+
+
+* Mon Jan 15 2007 Olivier Thauvin <nanardon@mandriva.org> 1.7.0-6mdv2007.0
++ Revision: 108974
+- patch0: fix build
+- Import yadex
+
+* Sat Jan 07 2006 Anssi Hannula <anssi@mandriva.org> 1.7.0-4mdk
+- fix x86_64 build
+
+* Fri Oct 21 2005 Olivier Thauvin <nanardon@mandriva.org> 1.7.0-3mdk
+- rebuild
+
+* Sat Jul 03 2004 Michael Scherer <misc@mandrake.org> 1.7.0-2mdk 
+- rebuild for new gcc
+

@@ -9,7 +9,7 @@ Patch0:		yadex-fix-compil.patch
 Patch1:		yadex-1.7.0-gcc45.patch
 URL:		http://www.teaser.fr/~amajorel/yadex
 BuildRoot:	%_tmppath/%name-%version-%release-root
-BuildRequires:	libx11-devel
+BuildRequires:	pkgconfig(x11)
 
 %description
 Yadex is a Doom level (wad) editor for Unix systems running X, including

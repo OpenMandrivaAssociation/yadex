@@ -1,7 +1,7 @@
 Summary:	Level editor for DOOM
 Name:		yadex
 Version:	1.7.0
-Release:	12
+Release:	13
 License:	GPL
 Group:		Games/Arcade
 Source:		http://www.teaser.fr/~amajorel/yadex/%name-%version.tar.bz2
